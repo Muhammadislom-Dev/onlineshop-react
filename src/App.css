@@ -19,8 +19,22 @@
 
 .list-img{
   transition: 0.5s;
+  width: 150px;
 }
 
 .list-img:hover{
   transform: scale(1.1);
+}
+
+.navbars{
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  background-color: rgb(255, 254, 253);
+}
+
+.hero{
+  margin-top: 75px;
 }
