@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import Example from "./Loading/example";
+import Skeleton from "react-loading-skeleton";
+import { NavLink } from "react-router-dom";
 
 
 const Product = () =>{
@@ -34,21 +36,43 @@ const Loading = () =>{
 return(
 <>
     {/* Loading... */}
-    <Example />
+    {/* <Example /> */}
+    <div className="col-md-3">
+        <Skeleton height={350} />
+    </div>
+    <div className="col-md-3">
+        <Skeleton height={350} />
+    </div>
+    <div className="col-md-3">
+        <Skeleton height={350} />
+    </div>
+    <div className="col-md-3">
+        <Skeleton height={350} />
+    </div>
 </>
 )
 }
+
+    const filterProduct =(cat) =>{
+        const updatedList = data.filter((x) => x.category === cat);
+        setFilter(updatedList)
+    }
 
 const ShowProducts = () =>{
 
 return(
 <>
     <div className="buttons d-flex justify-content-center mb-5 pb-5">
-        <button className="btn btn-outline-dark me-2">All</button>
-        <button className="btn btn-outline-dark me-2">Men's Clothing</button>
-        <button className="btn btn-outline-dark me-2">Women's Clothing</button>
-        <button className="btn btn-outline-dark me-2">Jewelery</button>
-        <button className="btn btn-outline-dark me-2">Electronic </button>
+        <button className="btn btn-outline-dark me-2" onClick={() => 
+        setFilter(data)}>All</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => 
+        filterProduct("men's clothing")} >Men's Clothing</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => 
+        filterProduct("women's clothing")}>Women's Clothing</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => 
+        filterProduct("jewelery")}>Jewelery</button>
+        <button className="btn btn-outline-dark me-2" onClick={() => 
+        filterProduct("electronics")}>Electronic </button>
     </div>
 
     {filter.map((product) => {
@@ -60,7 +84,7 @@ return(
                 <div className="card-body">
                     <h5 className="card-title mb-0">{product.title.substring(0,12)}</h5>
                     <p className="card-text fw-bold lead">${product.price}</p>
-                    <a href="#" className="btn btn-outline-success">Buy Now</a>
+                    <NavLink to={`/products/${product.id}`} className="btn btn-outline-success">Buy Now</NavLink>
                 </div>
             </div>
         </div>
