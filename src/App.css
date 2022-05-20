@@ -12,3 +12,15 @@
   font-size: 18px;
   font-weight: 600;
 }
+
+.card-title, .card-text, .list-text{
+  font-family: 'Merriweather', serif;
+}
+
+.list-img{
+  transition: 0.5s;
+}
+
+.list-img:hover{
+  transform: scale(1.1);
+}

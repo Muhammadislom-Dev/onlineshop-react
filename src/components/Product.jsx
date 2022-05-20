@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
+import Example from "./Loading/example";
 
 
 const Product = () =>{
@@ -32,7 +33,8 @@ getProducts();
 const Loading = () =>{
 return(
 <>
-    Loading...
+    {/* Loading... */}
+    <Example />
 </>
 )
 }
@@ -52,13 +54,13 @@ return(
     {filter.map((product) => {
     return(
     <>
-        <div className="col-md-3 mb-4">
+        <div className="list col-md-3 mb-4">
             <div className="card h-100 text-center p-4" key={product.id} >
-                <img src={product.image} className="card-img-top" alt={product.title} height="250px" />
+                <img src={product.image} className="list-img card-img-top" alt={product.title} height="220px" />
                 <div className="card-body">
                     <h5 className="card-title mb-0">{product.title.substring(0,12)}</h5>
                     <p className="card-text fw-bold lead">${product.price}</p>
-                    <a href="#" className="btn btn-outline-dark">Buy Now</a>
+                    <a href="#" className="btn btn-outline-success">Buy Now</a>
                 </div>
             </div>
         </div>
@@ -74,7 +76,7 @@ return(
     <div className="container my-5 py-5">
         <div className="row">
             <div className="col-12 mb-5">
-                <h1 className="display-6 fw-bolder text-center">Lates Products</h1>
+                <h1 className="list-text display-6 fw-bolder text-center">Lates Products</h1>
                 <hr />
             </div>
         </div>
