@@ -1,7 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar =() =>{
+    const state = useSelector((state) => state.handleCart)
+
 return(
     <div className="navbars">
         <nav className="navbar navbar-expand-lg navbar-light  shadow-sm py-3">
@@ -35,7 +38,7 @@ return(
                             <i className="fa fa-user-plus me-1"></i> Register
                         </NavLink>
                         <NavLink to="/cart" className="btn btn-outline-dark ms-2">
-                            <i className="fa fa-shopping-cart me-1"></i> Cart (0)
+                            <i className="fa fa-shopping-cart me-1"></i> Cart ({state.length})
                         </NavLink>
                     </div>
                 </div>
